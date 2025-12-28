@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rental Costs Visualization</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+  
+  <!-- ========= NAVIGATION BAR ========= -->
+    <div id="nav-bar">
+      <button id="prev-btn" class="nav-btn">←</button>
+      <span id="slide-title">Rental Costs Across the U.S.</span>
+      <button id="next-btn" class="nav-btn">→</button>
+    </div>
+
+
+    <!-- ========== SLIDE 0 ========== -->
+     <section class="slide" id="slide-1">
+      <p class="description">As someone who lives in the Bay Area and spends a lot of time exploring different neighborhoods, I’ve always been aware that rent here feels high compared to other places in the U.S. Every time I travel to other big metro areas, my friends and I inevitably end up comparing how much we pay for rent. Those conversations made me curious to look at rental costs more systematically across the country.</p>
+      <p class="description">While searching, I found a dataset from the Department of Housing and Urban Development (HUD) that uses <a href="https://www.huduser.gov/portal/datasets/fmr.html#documents_2024">Fair Market Rents</a>, which represents the 40th percentile of rental prices. HUD uses fair market rent to set payment standards for housing policies. The dataset is updated annually and is relatively clean and complete.</p>
+      <p class="description">While there are reports talking about the same topic, my project looks at the data from a more local angle. I focus on Fair Market Rents at the county level and break them down by unit size, from one- to four-bedroom units.</p>
+      <p class="description">I also compare metro and non-metro counties, adding another layer to see how metropolitan status shows up on both the high and low ends of the rent distribution. Furthermore, I pulled Census data on household income for the counties with the highest and lowest rents and visualized how their income distributions differ.</p>
+      <p class="description">The process of data vetting and analysis were shown in <a href="https://github.com/winniewyyao/fair-market-rent-data-analysis/blob/main/J221-final.ipynb" id="jupyter">this jupyter notebook.</a></p>
+    </section>
+
+    <!-- ========== SLIDE 1 ========== -->
+      <section class="slide" id="slide-1">
+          <div class="map-graphic">
+            <iframe title="" aria-label="Choropleth map" id="datawrapper-chart-3NEnN" src="https://datawrapper.dwcdn.net/3NEnN/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="448" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+          </div>
+          <p class="description">I created a map showing Fair Market Rents for one-bedroom units across U.S. counties. As expected, the darker areas, the higher rental costs—cluster around major metropolitan regions. So at first glance, the data aligns pretty well with what we know intuitively about housing prices.</p>
+          <p class="description">I later extended the visualization to include one- to four-bedroom units, and the pattern didn’t really change. Places like New York, Washington D.C., San Francisco, and Los Angeles consistently show up as the most expensive areas across unit sizes.</p>
+
+        <div class="cols">
+          <div class="map-left-col">
+            <!-- Map 1 -->
+            <iframe title="" aria-label="Choropleth map" id="datawrapper-chart-3NEnN" src="https://datawrapper.dwcdn.net/3NEnN/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="448" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>              
+            <!-- Map 2 -->
+            <iframe title="" aria-label="Choropleth map" id="datawrapper-chart-GmbzN" src="https://datawrapper.dwcdn.net/GmbzN/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="448" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+          </div>
+
+          <div class="map-right-col">
+            <!-- Map 3 -->
+            <iframe title="" aria-label="Choropleth map" id="datawrapper-chart-38NyY" src="https://datawrapper.dwcdn.net/38NyY/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="448" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>              
+            <!-- Map 4 -->
+            <iframe title="" aria-label="Choropleth map" id="datawrapper-chart-LLc3y" src="https://datawrapper.dwcdn.net/LLc3y/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="448" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+          </div>
+        </div>
+      </section>
+
+    <!-- ========== SLIDE 2 ========== -->
+    <section class="slide" id="slide-2">
+      <div class="cols">
+        <div class="left-col">
+            <iframe title="Santa Cruz County Ranked First in Rental Costs Across California" aria-label="Choropleth map" id="datawrapper-chart-GYJzL" src="https://datawrapper.dwcdn.net/GYJzL/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="811" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+        </div>
+
+        <div class="right-col">
+            <iframe title="Top 10 Highest-Rent Counties in California" aria-label="Bar Chart" id="datawrapper-chart-h7Tmp" src="https://datawrapper.dwcdn.net/h7Tmp/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="332" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+            <iframe title="In California, Metro Counties Pay Nearly $800 More in Rent Than Non-metro Counties for a Two-bedroom Unit" aria-label="Bar Chart" id="datawrapper-chart-HCYhK" src="https://datawrapper.dwcdn.net/HCYhK/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="166" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+        </div>
+      </div>
+        <p class="description">When sorting the values to see which counties were at the top overall, California dominated the list. Therefore, I zoomed in on California and created a bar chart showing the highest FMRs within the state. The results pointed to Santa Cruz, Marin, and San Mateo counties as having the highest Fair Market Rents.</p>
+        <p class="description">For the map of California, the regions that are metro areas are marked with slashes. I further grouped all the counties in California into two categories: metro and non-metro. The bar chart above showed that rents in metro areas are nearly $800 higher than in non-metro areas.</p>
+    </section>
+
+    <!-- ========== SLIDE 3 ========== -->
+    <section class="slide" id="slide-3">
+      <div class="cols">
+        <div class="left-col">
+            <iframe title="Lincoln County Ranked Lowest in Rental Cost Across Missouri" aria-label="Choropleth map" id="datawrapper-chart-jFkOD" src="https://datawrapper.dwcdn.net/jFkOD/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="693" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+        </div>
+
+        <div class="right-col">
+            <iframe title="Bottom 10 Counties of Rental Cost in Missouri" aria-label="Bar Chart" id="datawrapper-chart-5eXOD" src="https://datawrapper.dwcdn.net/5eXOD/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="332" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+            <iframe title="Over $100 Rent Gap Between Metro and Non-metro Missouri Counties" aria-label="Bar Chart" id="datawrapper-chart-CNtia" src="https://datawrapper.dwcdn.net/CNtia/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="166" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+        </div>
+      </div>
+        <p class="description">When sorting the dataset to find the counties with the lowest rental costs, Missouri frequently appeared at the bottom. The bar chart for Missouri shows Lincoln County and St. Louis County have the lowest Fair Market Rents.
+                               In Missouri, the metro classification seems to matter less than that in California. 
+                               Over 100 dollars difference between metro and non-metro areas.</p>
+    </section>
+
+    <!-- ==========SLIDE 4 ========== -->
+
+    <section class="slide" id="slide-4">
+
+      <div class="stacked-column-chart">
+           <iframe title="High-Income Households Are Far More Common in Santa Cruz County, CA" aria-label="Stacked column chart" id="datawrapper-chart-ukZyS" src="https://datawrapper.dwcdn.net/ukZyS/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="468" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+      </div>
+      <p class="description">By comparing the household income distributions between highest and lowest rental cost counties, Santa Cruz County has about 17% more households earning over $200,000 than Lincoln County in Missouri.</p>
+    </section>
+
+  </div>
+
+    <script src="script.js"></script>
+
+    <footer>© 2025 WanYu Yao</footer>
+  </body>
+</html>
